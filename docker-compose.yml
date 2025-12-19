@@ -34,11 +34,8 @@ services:
     volumes:
       - ./tempo.yml:/etc/tempo/tempo.yml:ro
       - tempo-data:/var/tempo
-      - tempo-generator-data:/var/tempo/generator
     command:
       - "-config.file=/etc/tempo/tempo.yml"
-    depends_on:
-      - prometheus
 
   grafana:
     image: grafana/grafana:latest
@@ -60,4 +57,3 @@ volumes:
   grafana-data:
   prometheus-data:
   tempo-data:
-  tempo-generator-data:
