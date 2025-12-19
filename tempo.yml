@@ -10,6 +10,36 @@ distributor:
         http:
           endpoint: 0.0.0.0:4318
 
+metrics_generator:
+  registry:
+    external_labels:
+      source: tempo
+      cluster: docker-compose
+  storage:
+    path: /var/tempo/generator/wal
+    remote_write:
+      - url: http://prometheus:9090/api/v1/write
+        send_exemplars: true
+  
+  processors:
+    service_graphs:
+      max_items: 10000
+      wait: 10s
+      workers: 10
+    
+    span_metrics:
+      dimensions:
+        - name: http.method
+          type: string
+        - name: http.status_code
+          type: string
+        - name: service.name
+          type: string
+        - name: http.target
+          type: string
+      dimensions_cache_size: 100000
+      enable_target_info: true
+
 storage:
   trace:
     backend: local
