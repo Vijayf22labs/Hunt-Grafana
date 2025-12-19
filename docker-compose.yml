@@ -8,12 +8,6 @@ services:
     volumes:
       - loki-data:/loki
     command: -config.file=/etc/loki/local-config.yaml
-    healthcheck:
-      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://127.0.0.1:3101/ready"]
-      interval: 15s
-      timeout: 5s
-      retries: 5
-      start_period: 60s
     networks:
       - observability
 
