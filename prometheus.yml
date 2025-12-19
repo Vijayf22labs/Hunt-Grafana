@@ -20,4 +20,4 @@ scrape_configs:
     scrape_timeout: 5s
     scheme: https
     static_configs:
-      - targets: ["8f69952e45be.ngrok-free.app"]
+      - targets: ["e51d795adafa.ngrok-free.app"]
