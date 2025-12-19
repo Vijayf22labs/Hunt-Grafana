@@ -10,8 +10,6 @@ services:
     env_file:
       - .env
     command: -config.file=/etc/loki/local-config.yaml
-    networks:
-      - observability
 
   prometheus:
     image: prom/prometheus:latest
@@ -24,8 +22,6 @@ services:
       - prometheus-data:/prometheus
     command:
       - "--config.file=/etc/prometheus/prometheus.yml"
-    networks:
-      - observability
 
   tempo:
     image: grafana/tempo:latest
@@ -40,8 +36,6 @@ services:
       - tempo-data:/var/tempo
     command:
       - "-config.file=/etc/tempo/tempo.yml"
-    networks:
-      - observability
 
   grafana:
     image: grafana/grafana:latest
@@ -57,15 +51,9 @@ services:
       - grafana-data:/var/lib/grafana
     env_file:
       - .env
-    networks:
-      - observability
 
 volumes:
   loki-data:
   grafana-data:
   prometheus-data:
   tempo-data:
-
-networks:
-  observability:
-    driver: bridge
