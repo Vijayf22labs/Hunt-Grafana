@@ -4,12 +4,12 @@ global:
 scrape_configs:
   - job_name: "prometheus"
     static_configs:
-      - targets: ["prometheus:9091"]
+      - targets: ["prometheus:9090"]
 
   - job_name: "loki"
     static_configs:
-      - targets: ["loki:3101"]
+      - targets: ["loki:3100"]
 
   - job_name: "tempo"
     static_configs:
-      - targets: ["tempo:3201"]
+      - targets: ["tempo:3200"]
