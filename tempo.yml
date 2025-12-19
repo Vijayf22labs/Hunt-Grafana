@@ -1,14 +1,14 @@
 server:
-  http_listen_port: 3200
+  http_listen_port: 3201
 
 distributor:
   receivers:
     otlp:
       protocols:
         http:
-          endpoint: "0.0.0.0:4318"
+          endpoint: "0.0.0.0:4320"
         grpc:
-          endpoint: "0.0.0.0:4317"
+          endpoint: "0.0.0.0:4319"
 
 storage:
   trace:
