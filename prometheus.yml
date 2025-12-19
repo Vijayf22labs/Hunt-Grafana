@@ -18,6 +18,6 @@ scrape_configs:
     metrics_path: "/metrics"
     scrape_interval: 10s
     scrape_timeout: 5s
-    scheme: http
+    scheme: https
     static_configs:
       - targets: ["e51d795adafa.ngrok-free.app"]
