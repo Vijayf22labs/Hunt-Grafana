@@ -20,4 +20,4 @@ scrape_configs:
     scrape_timeout: 5s
     scheme: https
     static_configs:
-      - targets: ["e51d795adafa.ngrok-free.app"]
+      - targets: ["api.hirevox.ai"]
